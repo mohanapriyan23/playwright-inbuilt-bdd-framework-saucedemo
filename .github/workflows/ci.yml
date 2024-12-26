@@ -32,13 +32,13 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    # Step 4: Install Playwright Browsers
+    # Step 4: Install System Dependencies for Playwright Browsers
+    - name: Install Playwright System Dependencies
+      run: npx playwright install-deps
+
+    # Step 5: Install Playwright Browsers
     - name: Install Playwright Browsers
       run: npx playwright install
-
-    # Step 5: Verify Playwright Browser Installation
-    - name: Verify Browsers
-      run: ls -R ./node_modules/playwright-core/.local-browsers/
 
     # Step 6: Run Tests
     - name: Run Playwright Tests on ${{ matrix.browser }}
