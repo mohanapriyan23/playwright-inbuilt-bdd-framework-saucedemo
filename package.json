@@ -1,0 +1,17 @@
+{
+  "name": "playwright-inbuilt-bdd-framework-saucedemo",
+  "version": "1.0.0",
+  "description": "Playwright automation framework for SauceDemo",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "test:trace-on": "playwright test --trace on",
+    "test:all-browsers": "playwright test --project=chromium --project=firefox --project=webkit"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "typescript": "^5.3.2"
+  }
+}
