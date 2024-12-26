@@ -36,16 +36,20 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install
 
-    # Step 5: Run Tests
+    # Step 5: Verify Playwright Browser Installation
+    - name: Verify Browsers
+      run: ls -R ./node_modules/playwright-core/.local-browsers/
+
+    # Step 6: Run Tests
     - name: Run Playwright Tests on ${{ matrix.browser }}
       env:
         PLAYWRIGHT_BROWSERS_PATH: 0
       run: npx playwright test --project=${{ matrix.browser }}
 
-    # Step 6: Upload Test Artifacts
+    # Step 7: Upload Test Artifacts
     - name: Upload Test Artifacts (if any)
       if: always()
       uses: actions/upload-artifact@v3
       with:
         name: playwright-report-${{ matrix.browser }}
-        path: reports/
+        path: playwright-report/
